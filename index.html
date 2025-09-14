@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Quality Prediction</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; }
+    form { background: #fff; padding: 20px; border-radius: 10px; display: inline-block; margin-top: 30px; }
+    input { margin: 10px; padding: 8px; width: 250px; }
+    button { padding: 10px 20px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: darkgreen; }
+    .result { margin-top: 20px; font-size: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>💧 Water Quality Prediction</h1>
+  <form action="/predict" method="post">
+    <input type="text" name="ph" placeholder="pH" required><br>
+    <input type="text" name="Hardness" placeholder="Hardness" required><br>
+    <input type="text" name="Solids" placeholder="Solids" required><br>
+    <input type="text" name="Chloramines" placeholder="Chloramines" required><br>
+    <input type="text" name="Sulfate" placeholder="Sulfate" required><br>
+    <input type="text" name="Conductivity" placeholder="Conductivity" required><br>
+    <input type="text" name="Organic_carbon" placeholder="Organic Carbon" required><br>
+    <input type="text" name="Trihalomethanes" placeholder="Trihalomethanes" required><br>
+    <input type="text" name="Turbidity" placeholder="Turbidity" required><br>
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+  {% endif %}
+</body>
+</html>
